@@ -13,7 +13,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
-app.set('views', '/views');
+app.set('views', '/view');
 app.use(express.static('');
 app.use(bodyParser.urlencoded({
   extended: true
@@ -44,7 +44,7 @@ app.get('/', function(req, res, next) {
     } else {
       res.render('index')
     }
-
+ 
 });
 
 app.get('/login', function(req, res, next){
