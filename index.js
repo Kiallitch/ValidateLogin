@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 // That doesn't feel entirely accurate, but maybe I should have said it's
 // "applying" them not just requiring them for the app.
 
-const app = 'express'();
+const app = express();
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 app.set('views', '/views');
@@ -23,15 +23,14 @@ app.use(session({
   resave: false,
   saveUninitialize: true,
 
-});
+}));
 
 // this is a list of id and passwords currently in the database.
 
 app.use(function(req, res, next){
   req.session.users = {
     David: 'bestinshow'
-      }
-  };
+      };
 
   next(); //call back
 });
@@ -40,7 +39,6 @@ app.use(function(req, res, next){
 // your name, but if not... you don't see it.  The page just resets.
 
 app.get('/', function(req, res, next) {
-  {
     if (req.session.users[req.body.username] === req.body.password) {
       res.send("'Hello ' + res.session.username"
     } else {
