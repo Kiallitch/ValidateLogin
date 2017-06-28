@@ -55,7 +55,7 @@ res.render('index')
 // this allows the page to either reset or move onto the logged in and hello
 // version.
 
-app.post('/login' function(req, res, next){
+app.post('/login', function(req, res, next){
   console.log((req.body);
   console.log(req.session.users[req.body.username]);
   if (req.session.users[req.body.username] === req.body.password){
