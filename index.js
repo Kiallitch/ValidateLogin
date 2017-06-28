@@ -39,7 +39,7 @@ app.use(function(req, res, next){
 // your name, but if not... you don't see it.  The page just resets.
 
 app.get('/', function(req, res, next) {
-    if (req.session.users[req.body.username] === req.body.password) {
+    if (req.session.username) {
       res.send("'Hello ' + req.session.username")
     } else {
       res.render('index')
