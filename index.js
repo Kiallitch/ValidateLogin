@@ -40,7 +40,7 @@ app.use(function(req, res, next){
 
 app.get('/', function(req, res, next) {
     if (req.session.users[req.body.username] === req.body.password) {
-      res.send("'Hello ' + res.session.username"
+      res.send("'Hello ' + req.session.username")
     } else {
       res.render('index')
     }
